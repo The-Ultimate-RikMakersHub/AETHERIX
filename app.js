@@ -1,120 +1,30 @@
 // ==========================================================================
-// 🛸 AETHERIX MASTER CLIENT ROUTER ENGINE - INDUSTRIAL DEFENSE INTERFACE
+// 🛸 AETHERIX ASYNCHRONOUS 7-PART DYNAMIC FETCH ROUTER CORE ENGINE
 // ==========================================================================
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("💼 AETHERIX Industrial Operations Router Initialized Core.");
+    console.log("⚙️ AETHERIX 7-Tab Industrial Router Engaged.");
 
-    // 1. Inlined Cryptographic WebAssembly Binary Buffer Array Blueprint
-    const cryptoWasmBytes = new Uint8Array([
-        0x00, 0x61, 0x73, 0x6d, 0x01, 0x00, 0x00, 0x00,
-        0x01, 0x07, 0x01, 0x60, 0x02, 0x7f, 0x7f, 0x01, 0x7f,
-        0x03, 0x02, 0x01, 0x00, 0x07, 0x11, 0x01, 0x0d, 0x62,
-        0x69, 0x74, 0x77, 0x69, 0x73, 0x65, 0x5f, 0x78, 0x6f,
-        0x72, 0x00, 0x00, 0x0a, 0x09, 0x01, 0x07, 0x00, 0x20,
-        0x00, 0x20, 0x01, 0x73, 0x0b
-    ]);
-    
-    let wasmEngine = null;
-    WebAssembly.instantiate(cryptoWasmBytes).then(res => {
-        wasmEngine = res.instance.exports;
-        console.log("⚙️ [Wasm Engine] Secure cryptographic instructions compiled locally.");
-    }).catch(err => console.error("⚠️ Wasm Target Core Bypassed:", err));
-
-    // 2. Hardware Resource Boundary Scanner
+    // Native Hardware-Aware Capacity Scanner Registry
     const localHardwareRam = navigator.deviceMemory || 8;
 
-    // 3. Central Router Directory Registry (Flat Tactical Component Framework)
-    const clientRouteRegistry = {
-        "#/dashboard": `
-            <section class="crypto-panel">
-                <div class="panel-title"><span>📊 SECURITY CORE DIAGNOSTICS</span><span class="status-indicator optimal">SYSTEM_OPERATIONAL</span></div>
-                <div class="panel-content">
-                    <p class="summary-text">AETHERIX centralized edge console node. Hardware monitoring loops have mapped local host resources cleanly:</p>
-                    <div class="spec-grid-layout">
-                        <div class="spec-item">DETECTED MEMORY CAPACITY: <strong>${localHardwareRam} GB RAM</strong></div>
-                        <div class="spec-item">CLOUD LATENCY FOOTPRINT: <strong>0.00ms (100% OFFLINE EDGE)</strong></div>
-                    </div>
-                    <div style="margin-top: 1rem; display: flex; gap: 10px;">
-                        <button class="action-trigger-btn" onclick="location.hash='#/obelisk/vault'">LAUNCH OBELISK CORE</button>
-                        <button class="action-trigger-btn secondary" onclick="location.hash='#/kronos/malware'">OPEN KRONOS LABS</button>
-                    </div>
-                </div>
-            </section>
-        `,
-        "#/obelisk/vault": `
-            <section class="crypto-panel">
-                <div class="panel-title"><span>🔐 OBELISK // SECURE ENCRYPTION VAULT</span><span class="status-indicator optimal">WASM_ACTIVE</span></div>
-                <div class="panel-content">
-                    <p class="summary-text">Perform bitwise data obfuscation locally inside client memory parameters using low-level Wasm modules.</p>
-                    <div class="input-block-group">
-                        <label class="control-label">RAW PLANETEXT MEMORY PAYLOAD:</label>
-                        <input type="text" id="payload-string" class="cyber-input-field" value="AETHERIX CLASSIFIED SYSTEM DATA">
-                    </div>
-                    <button class="action-trigger-btn" id="scramble-trigger-node">GENERATE ARMORED CIPHER BLOCK</button>
-                    <div class="input-block-group">
-                        <label class="control-label">COMPUTED EXPORT STRING:</label>
-                        <input type="text" id="output-armored" class="cyber-input-field" readonly placeholder="Awaiting matrix encryption trace...">
-                    </div>
-                </div>
-            </section>
-        `,
-        "#/obelisk/mesh": `
-            <section class="crypto-panel">
-                <div class="panel-title"><span>🛰️ OBELISK // PEER-TO-PEER ENCRYPTED DATA MESH</span><span class="status-indicator active-mesh">MESH_ONLINE</span></div>
-                <div class="panel-content">
-                    <p class="summary-text">Active tunnels established via native browser WebRTC channels. Communication pipelines are running peer-to-peer across local host desks:</p>
-                    <div class="data-table-container">
-                        <table>
-                            <thead><tr><th>NODE LINK ID</th><th>TARGET DEVICE</th><th>PRIVACY DESCRIPTOR</th><th>PING</th></tr></thead>
-                            <tbody>
-                                <tr><td>NODE-01</td><td>Main Workstation Laptop (32GB)</td><td>Encrypted End-to-End Tunnel</td><td>4ms</td></tr>
-                                <tr><td>NODE-02</td><td>MacBook Neo Client Portal</td><td>Encrypted End-to-End Tunnel</td><td>6ms</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </section>
-        `,
-        "#/kronos/sandbox": `
-            <section class="crypto-panel">
-                <div class="panel-title"><span>🗄️ KRONOS // RELATIONAL SQL VULNERABILITY SANDBOX</span><span class="status-indicator testing">SANDBOX_READY</span></div>
-                <div class="panel-content">
-                    <p class="summary-text">Practice data isolation and audit SQL compliance traces against malicious string injection attempts inside a secure, zero-server database shell:</p>
-                    <input type="text" class="cyber-input-field" value="SELECT * FROM node_audit_logs WHERE threat_level = 'CRITICAL' ORDER BY epoch_time DESC;">
-                    <button class="action-trigger-btn">RUN LAB RELATIONAL TEST</button>
-                </div>
-            </section>
-        `,
-        "#/kronos/malware": `
-            <section class="crypto-panel">
-                <div class="panel-title"><span>🛡️ KRONOS // MALWARE INTELLIGENCE & DEFENSIVE LAB</span><span class="status-indicator alert">INTELLIGENCE_POOL</span></div>
-                <div class="panel-content">
-                    <p class="summary-text">Defensive manual documentation tracking behavioral indicators and step-by-step mitigation configurations against malicious script vectors:</p>
-                    <div class="threat-matrix-grid">
-                        <div class="threat-card item-trojan">
-                            <strong>1. TROJAN HORSE ATTACK VECTORS</strong>
-                            <p>Behavior: Masked payloads that exploit background user access configurations.</p>
-                            <p class="patch-line">Defense: Compute cryptographic checksums (SHA-256) to verify absolute software integrity.</p>
-                        </div>
-                        <div class="threat-card item-ransomware">
-                            <strong>2. RANSOMWARE ENCRYPTION DEFENSE</strong>
-                            <p>Behavior: High-velocity automated recursive loops attempting database file locks.</p>
-                            <p class="patch-line">Defense: Establish air-gapped, isolated offline repository data mirrors immediately.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        `
+    // Strict URL Hash Mapping Matrix pointing to your dedicated view files inside views/
+    const routingModulePaths = {
+        "#/content": "STATIC_BAKED_SHELL",
+        "#/obelisk": "views/obelisk.html",
+        "#/roadmap": "views/roadmap.html",
+        "#/glossary": "views/glossary.html",
+        "#/kronos": "views/kronos.html",
+        "#/faqs": "views/faqs.html",
+        "#/about": "views/about.html"
     };
 
-    // 4. Asynchronous Hash View Switch Pipeline Router Loop
-    function routeExecutionPipeline() {
-        const activeUrlHash = window.location.hash || "#/dashboard";
+    async function executeAsyncRouteSwap() {
+        const activeUrlHash = window.location.hash || "#/content";
         const viewportMountElement = document.getElementById("app-viewport");
-        
         if (!viewportMountElement) return;
 
+        // Automatically update main navbar option highlights layout active state
         document.querySelectorAll(".nav-anchor").forEach(anchor => {
             if (anchor.getAttribute("href") === activeUrlHash) {
                 anchor.classList.add("active");
@@ -123,17 +33,75 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        if (clientRouteRegistry[activeUrlHash]) {
-            viewportMountElement.innerHTML = clientRouteRegistry[activeUrlHash];
+        // 🛡️ THE HOME PAGE BYPASS GUARD: If viewing Content, use the statically baked code!
+        if (activeUrlHash === "#/content") {
+            const staticNode = document.getElementById("static-content-tab");
+            if (staticNode) {
+                // If the static panel was hidden by a previous tab click, bring it back instantly
+                staticNode.style.display = "block";
+                
+                // Clear out any residual sub-page data layout nodes that were fetched earlier
+                const fetchedChildren = viewportMountElement.querySelectorAll(".fetched-fragment-wrapper");
+                fetchedChildren.forEach(child => child.remove());
+                
+                // Inject native memory metrics directly into the static dashboard row readout
+                const ramContainer = document.getElementById("detected-ram-buffer");
+                if (ramContainer) {
+                    ramContainer.textContent = `${localHardwareRam} GB RAM`;
+                }
+                return; // Cease execution immediately. No network fetch operation required!
+            }
+        }
+
+        // Isolate the target local layout filename pathway for the other 6 tabs
+        const targetFilePath = routingModulePaths[activeUrlHash];
+        if (!targetFilePath || targetFilePath === "STATIC_BAKED_SHELL") {
+            window.location.hash = "#/content";
+            return;
+        }
+
+        // Hide the main home page syllabus panel so the oncoming sub-page layout can render cleanly
+        const staticNode = document.getElementById("static-content-tab");
+        if (staticNode) {
+            staticNode.style.display = "none";
+        }
+
+        // Display low-contrast tactical loader trace message while fetching data arrays
+        viewportMountElement.innerHTML = `
+            <div class="loading-matrix-trace">
+                <span class="spinner-token"></span>
+                <p>STREAMING NODE VECTOR: [${targetFilePath.toUpperCase()}] ... STANDBY FOR CONTENT MOUNT</p>
+            </div>
+        `;
+
+        try {
+            // Fetching the independent static view fragment code block from the views/ directory
+            const executionResponse = await fetch(targetFilePath);
+            
+            if (!executionResponse.ok) throw new Error(`HTTP Fault Status: ${executionResponse.status}`);
+            
+            const layoutHtmlFragmentString = await executionResponse.text();
+            
+            // Wrap the incoming text string fragment in an isolated layout container class node
+            viewportMountElement.innerHTML = `<div class="fetched-fragment-wrapper">${layoutHtmlFragmentString}</div>`;
+            
+            // Initialize functional event triggers inside the freshly fetched file templates
             initializeDynamicModuleTriggers(activeUrlHash);
-        } else {
-            viewportMountElement.innerHTML = clientRouteRegistry["#/dashboard"];
+
+        } catch (error) {
+            console.error("⚠️ Async Route Fetch Failure:", error);
+            viewportMountElement.innerHTML = `
+                <div class="loading-matrix-trace">
+                    <p style="color:#ef4444;">404 // OPERATION COMPONENT ROUTE INTERRUPTED OR UNALLOCATED IN VIEWS DIRECTORY</p>
+                </div>
+            `;
         }
     }
 
-    // 5. Dynamic Module Functional Binding Engine
+    // Dynamic Module Functional Binding Engine (Triggers calculations when files mount)
     function initializeDynamicModuleTriggers(route) {
-        if (route === "#/obelisk/vault") {
+        // Active computation trigger hook for the OBELISK local obfuscation deck tool
+        if (route === "#/obelisk") {
             const btn = document.getElementById("scramble-trigger-node");
             const input = document.getElementById("payload-string");
             const output = document.getElementById("output-armored");
@@ -142,20 +110,24 @@ document.addEventListener("DOMContentLoaded", () => {
                 btn.addEventListener("click", () => {
                     const rawVal = input.value;
                     let result = "";
-                    for(let i=0; i<rawVal.length; i++) {
+                    for(let i = 0; i < rawVal.length; i++) {
                         result += String.fromCharCode(rawVal.charCodeAt(i) ^ 0x0F);
                     }
                     output.value = `AETH_SEC_VAULT_v1[${btoa(result)}]`;
-                    console.log("🔒 Obelisk encryption layer completed calculations.");
+                    console.log("🔒 Data obfuscation loops successfully completed calculations.");
                 });
             }
         }
     }
 
-    window.addEventListener("hashchange", routeExecutionPipeline);
-    routeExecutionPipeline();
+    // Bind event listeners tracking browser URL window hash shifts
+    window.addEventListener("hashchange", executeAsyncRouteSwap);
+    
+    // Boot the routing network on initial viewport mount layer execution
+    executeAsyncRouteSwap();
 });
 
+// PWA background offline network asset registry proxy layer
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
         navigator.serviceWorker.register("sw.js").catch(err => console.error(err));
