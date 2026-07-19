@@ -1,0 +1,100 @@
+<!-- ==========================================================================
+   🗺️ AETHERIX TAB 3: DUAL-PANEL ROADMAP ARCHITECTURE FRAGMENT
+   ========================================================================== -->
+<div class="academic-syllabus-container">
+    
+    <!-- 🎛️ Minimalist Horizontal View Switcher Toggle Bar -->
+    <div style="display: flex; gap: 10px; border-bottom: 1px solid var(--border-flat); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+        <button class="action-trigger-btn" id="toggle-prereq-btn" onclick="document.getElementById('panel-prereq').style.display='block'; document.getElementById('panel-playbook').style.display='none'; this.style.backgroundColor='var(--text-primary)'; this.style.color='var(--bg-main)'; document.getElementById('toggle-playbook-btn').style.backgroundColor='transparent'; document.getElementById('toggle-playbook-btn').style.color='var(--text-primary)';" style="flex: 1;">
+            [ 🎛️ GRAPH: PREREQUISITE LEVEL MATRIX ]
+        </button>
+        <button class="action-trigger-btn secondary" id="toggle-playbook-btn" onclick="document.getElementById('panel-prereq').style.display='none'; document.getElementById('panel-playbook').style.display='block'; this.style.backgroundColor='var(--text-primary)'; this.style.color='var(--bg-main)'; document.getElementById('toggle-prereq-btn').style.backgroundColor='transparent'; document.getElementById('toggle-prereq-btn').style.color='var(--text-primary)';" style="flex: 1; border-color: var(--border-flat);">
+            [ 📅 PLAYBOOK: PC HARDENING MANUAL ]
+        </button>
+    </div>
+
+    <!-- ✦✦✦ PANEL 1: INTERACTIVE PREREQUISITE MATRIX (DEFAULT VISIBLE) ✦✦✦ -->
+    <div id="panel-prereq" style="display: block;">
+        <label class="control-label" style="font-size: 0.75rem; color: var(--text-primary); display: block; margin-bottom: 10px;">
+            CHOOSE YOUR ENTRY LEVEL PROFILE FILTER:
+        </label>
+        
+        <!-- Level Picker Action Triggers -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; margin-bottom: 1.5rem;">
+            <div class="spec-item" onclick="alert('Novice: Focus on Phase 00 (Foundations). Prerequisites: None.')" style="cursor: pointer; text-align: center; border-left-color: var(--status-optimal);">🟢 NOVICE</div>
+            <div class="spec-item" onclick="alert('Security Dev: Target Phase 01 (Obelisk Wasm). Prerequisites: Phase 00.')" style="cursor: pointer; text-align: center; border-left-color: var(--status-active);">🟡 SEC_DEV</div>
+            <div class="spec-item" onclick="alert('Grey Hat: Target Phase 02 (Kronos Forensics). Prerequisites: Phase 01.')" style="cursor: pointer; text-align: center; border-left-color: var(--status-amber);">🟠 GREY_HAT</div>
+            <div class="spec-item" onclick="alert('Founder: Target Phase 04 (P2P WebRTC Core). Prerequisites: All Phases.')" style="cursor: pointer; text-align: center; border-left-color: var(--status-alert);">🔴 FOUNDER</div>
+        </div>
+
+        <label class="control-label" style="font-size: 0.75rem; color: var(--text-primary); display: block; margin-bottom: 10px;">
+            DEPENDENCY STRUCTURAL PHASES TREE:
+        </label>
+        
+        <!-- Prerequisite Dependency Rows -->
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div class="spec-item" style="background-color: var(--panel-bg);">
+                <code>PHASE 00: Foundations</code> ───➔ Requires: None // Status: Baseline Anchored
+            </div>
+            <div class="spec-item" style="background-color: var(--panel-bg);">
+                <code>PHASE 01: OBELISK Core</code> ──➔ Requires: Phase 00 // Unlocks: Phase 02, Phase 04
+            </div>
+            <div class="spec-item" style="background-color: var(--panel-bg);">
+                <code>PHASE 02: KRONOS Core</code> ──➔ Requires: Phase 01 // Unlocks: Phase 03 (SQL Audit)
+            </div>
+        </div>
+    </div>
+
+    <!-- ✦✦✦ PANEL 2: TACTICAL PLAYBOOK COMPENDIUM (DEFAULT HIDDEN) ✦✦✦ -->
+    <div id="panel-playbook" style="display: none; padding-top: 0.5rem;">
+        
+        <!-- H1 Equivalent Header Alignment -->
+        <div style="border-bottom: 1px solid var(--border-flat); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+            <h1 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.5px;">
+                Cybersecurity vs Malware
+            </h1>
+            <p class="summary-text" style="margin-top: 6px;">
+                An ongoing, low-level operational battlefield between structural interface protection barriers and malicious software execution routines.
+            </p>
+        </div>
+
+        <!-- H2 Equivalent Header Alignment -->
+        <h2 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem; letter-spacing: 0.5px;">
+            How to Make Your PC Bulletproof Against Malware
+        </h2>
+
+        <!-- The 4 Hardening Layers Matrix Rows -->
+        <div class="threat-matrix-grid">
+            
+            <div class="threat-card" style="border-left: 3px solid var(--status-optimal);">
+                <strong>LAYER 01 // CORE PRIVILEGE ISOLATION</strong>
+                <p class="summary-text" style="font-size: 0.75rem;">
+                    Eliminate administrative credentials on daily workspace accounts. Restricting daily terminal actions from root access blocks background payload scripts from writing straight into operating system kernels or system registries.
+                </p>
+            </div>
+
+            <div class="threat-card" style="border-left: 3px solid var(--status-active);">
+                <strong>LAYER 02 // NETWORK SOCKET HARDENING</strong>
+                <p class="summary-text" style="font-size: 0.75rem;">
+                    Close un-utilized inbound listener ports via native OS firewall rule sets. Shutting down common exploitation vectors (like SMB port 445 or NetBIOS ports 137-139) prevents self-replicating network Worms from scanning and hopping between devices.
+                </p>
+            </div>
+
+            <div class="threat-card" style="border-left: 3px solid var(--status-amber);">
+                <strong>LAYER 03 // FILE INTEGRITY VERIFICATION</strong>
+                <p class="summary-text" style="font-size: 0.75rem;">
+                    Never trust software assets based on user icons or names. Prior to execution, compute the binary file's cryptographic checksum hash (SHA-256) locally and cross-verify it against known parameters to audit for thread injection anomalies.
+                </p>
+            </div>
+
+            <div class="threat-card" style="border-left: 3px solid var(--status-alert);">
+                <strong>LAYER 04 // AIR-GAPPED OFFLINE STORAGE</strong>
+                <p class="summary-text" style="font-size: 0.75rem;">
+                    Operate under the absolute engineering rule that active endpoints will interact with threats. Use automated local script macros to mirror repository targets onto completely disconnected, air-gapped external drives to bypass recursive Ransomware encryptions.
+                </p>
+            </div>
+
+        </div> <!-- End of grid -->
+    </div>
+
+</div>
