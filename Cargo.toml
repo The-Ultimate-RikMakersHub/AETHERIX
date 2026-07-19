@@ -1,0 +1,22 @@
+# ==========================================================================
+# ⚙️ TOML WORKSPACE DEPENDENCY MAP FOR IN-BROWSER WEBASSMEBLY
+# ==========================================================================
+[package]
+name = "aetherix-core-crypto"
+version = "1.0.0"
+edition = "2021"
+authors = ["RikMakersHub Enterprise Systems Team"]
+publish = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+# The essential binary layout bridge linking Rust memory structures to JS/TS loops
+wasm-bindgen = "0.2.92"
+
+[profile.release]
+opt-level = "z"      # Strips binary size aggressively for faster multi-page downloads
+lto = true           # Enables Link-Time Optimization across your compilation blocks
+panic = "abort"      # Drops heavy call stack-unwinding code to keep compilation clean
+codegen-units = 1    # Compiles as a single unit to maximize file compression metrics
