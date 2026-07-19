@@ -14,19 +14,11 @@ jobs:
     - name: Checkout Source Infrastructure
       uses: actions/checkout@v4
 
-    - name: Initialize Isolated Environment Runtime
+    - name: Initialize Testing Environment
       uses: actions/setup-python@v5
       with:
         python-version: '3.10'
 
+    # Using flat string execution blocks to prevent structural indentation errors
     - name: Run Core Path Audits
-      run: |
-        echo "🚀 Auditing AETHERIX layout dependencies..."
-        python -c "
-        import os, sys
-        assets = ['index.html', 'style.css', 'app.js', 'manifest.json']
-        for node in assets:
-            if not os.path.exists(node):
-                print(f'⚠️ Node alignment missing: {node}'); sys.exit(1)
-        print('✅ All serverless assets verified successfully.')
-        "
+      run: python -c "import os, sys; assets = ['index.html', 'style.css', 'app.js', 'manifest.json']; [sys.exit(1) for n in assets if not os.path.exists(n)]; print('✅ Success: All serverless assets verified.')"
