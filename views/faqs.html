@@ -1,0 +1,77 @@
+<!-- ==========================================================================
+   ⏳ AETHERIX TAB 6: THE FAQS DEFENSIVE COMPENDIUM (15 CYBERSECURITY READOUTS)
+   ========================================================================== -->
+<div class="academic-syllabus-container">
+    
+    <div style="border-bottom: 1px solid var(--border-flat); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+        <h1 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.5px; text-transform: uppercase;">
+            KRONOS // FORENSIC CYBERSECURITY FAQS
+        </h1>
+        <p class="summary-text" style="margin-top: 6px; font-size: 0.8rem; color: var(--text-muted);">
+            15 heavy, low-level technical reference readouts breaking down memory sandboxes, process lifecycles, and port security.
+        </p>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 1.5rem; font-size: 0.8rem; line-height: 1.6; color: var(--text-muted);">
+        <div>
+            <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">Q1: Can loading a static webpage from a GitHub Pages link drop a Trojan onto a host disk drive?</strong>
+            <span>No. Modern browsers execute client-side assets inside a strictly isolated, hardware-enforced Browser Sandbox. Web scripts have zero physical permissions to interact with local operating system kernels, registries, or storage directories. It is architecturally impossible to drop or execute unauthorized binaries simply from loading a static URL.</span>
+        </div>
+        <div>
+            <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">Q2: Why does AETHERIX combine compiled Rust WebAssembly binaries with vanilla JavaScript?</strong>
+            <span>JavaScript excels at DOM updates and routing but has performance bottlenecks during heavy math. Writing core bitwise obfuscation modules in Rust and compiling them to static .wasm arrays allows the calculations to bypass the runtime interpreter and run natively on CPU threads at near-silicon speeds.</span>
+        </div>
+        <div>
+            <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">Q3: How can a database injection vulnerability occur inside a serverless, zero-backend platform?</strong>
+            <span>It affects local session memory rather than cloud infrastructure. If an in-memory client database shell accepts user string arguments without sanitizing characters like quotes ('), an input string can break out of its data containment bounding context and execute arbitrary relational syntax over your client variables.</span>
+        </div>
+        <div>
+            <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">Q4: What is the operational distinction between a malware Trojan and a self-replicating network Worm?</strong>
+            <span>The difference lies in the execution vector. A Trojan requires human error to spread—relying on masking techniques to trick a user into manually running a hidden payload. Conversely, a network Worm requires zero human interaction. It actively scans open local ports for system vulnerabilities, exploits the connection, and self-replicates across device nodes automatically.</span>
+        </div>
+        <div>
+            <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">Q5: How does Ransomware execute recursive file encryption loops, and how do you block it?</strong>
+            <span>Ransomware processes exploit system file-system privileges to iterate recursively down through directory pathways, executing high-velocity symmetric encryption loops (like AES) to lock data chunks locally. The primary defensive countermeasure is maintaining automated, air-gapped offline data mirrors.</span>
+        </div>
+        <div>
+            <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">Q6: What is 'Process Hollowing' and how do hidden malicious payloads abuse legitimate system processes?</strong>
+            <span>Process Hollowing is a code injection technique where an unverified binary loads a legitimate system process in a suspended state. The payload then unmaps (hollows) the legitimate execution code from memory and replaces it with its own unverified instructions before resuming the thread.</span>
+        </div>
+        <div>
+            <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">Q7: What is information entropy, and how does it verify the cryptographic density of an obfuscated string?</strong>
+            <span>Information entropy is a mathematical calculation that measures the randomness and unpredictability of byte data inside a text payload. A completely uniform string has low entropy, while an encrypted, securely scrambled block has high entropy approaching a maximum value of 8.0 bits per byte.</span>
+        </div>
+        <div>
+            <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">Q8: How do WebRTC data channels establish peer-to-peer browser connections without routing traffic through central database servers?</strong>
+            <span>WebRTC utilizes an initial signaling protocol to allow two separate browsers to exchange connection parameters (like public IP lines via STUN servers). Once this metadata exchange is complete, the signaling server closes entirely, and the two browsers establish a direct, encrypted UDP network tunnel.</span>
+        </div>
+        <div>
+            <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">Q9: Why are SHA-256 cryptographic checksums utilized to verify file and software integrity?</strong>
+            <span>SHA-256 compresses any file size into a fixed, 256-bit character signature. Because the calculation is deterministic, a single byte change inside a heavy software installer completely alters the resulting hash output string, letting users match unverified signatures to detect tampering instantly.</span>
+        </div>
+        <div>
+            <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">Q10: What is Cross-Site Scripting (XSS) and why does text content need to be isolated before DOM injection?</strong>
+            <span>XSS occurs when an application accepts an unverified text string and prints it straight into an HTML layout node without encoding characters. AETHERIX prevents this by enforcing strict text-only rendering methods (like textContent), forcing the browser to read data inputs purely as flat characters.</span>
+        </div>
+        <div>
+            <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">Q11: How does a local Local Area Network (LAN) port scanner track active device hardware signatures?</strong>
+            <span>Network utilities send raw TCP or UDP network packets directly to specific port addresses on a local machine IP line. By analyzing the exact network packet response parameters returned by the hardware, the utility deduces exactly what operating system and software version profiles are running.</span>
+        </div>
+        <div>
+            <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">Q12: What is the architectural difference between symmetric encryption and asymmetric encryption?</strong>
+            <span>Symmetric encryption uses one single private security key to handle both encrypting and decrypting data chunks, making it fast but difficult to distribute securely. Asymmetric encryption implements a dual-key configuration: a public key that anyone can use to encrypt data payloads, and an isolated private key held securely by the recipient to decode it.</span>
+        </div>
+        <div>
+            <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">Q13: How do Progressive Web Apps (PWAs) preserve operational status when a device completely disconnects from the internet?</strong>
+            <span>PWAs utilize a background engine script called a Service Worker Proxy that installs itself straight into the browser's cache memory. The moment connection drops, the service worker intercepts fetch routines, grabs components directly from local hardware cache storage, and serves them locally.</span>
+        </div>
+        <div>
+            <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">Q14: What is a Man-in-the-Middle (MITM) network attack and how does HTTPS block it?</strong>
+            <span>An MITM attack happens when an unverified node positions itself between a browser and an external web asset to intercept unencrypted traffic. HTTPS neutralizes this by enforcing TLS encryption protocols over the network line, ensuring actors only see a garbled, high-entropy cipher string.</span>
+        </div>
+        <div>
+            <strong style="color: var(--text-primary); display: block; margin-bottom: 4px;">Q15: Why is the Apache License 2.0 superior to the standard MIT license for enterprise engineering portfolios?</strong>
+            <span>While the MIT license grants open usage, it lacks legal protections regarding patents. The Apache License 2.0 provides corporate-grade protection by including an explicit Grant of Patent Rights clause, legally blocking third parties from filing patent infringement lawsuits against your organization.</span>
+        </div>
+    </div>
+</div>
