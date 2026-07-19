@@ -1,0 +1,114 @@
+<!-- ==========================================================================
+   ⏳ AETHERIX TAB 5: THE KRONOS INTERACTIVE LAB & TRAINING MANUAL
+   ========================================================================== -->
+<div class="academic-syllabus-container">
+    
+    <!-- Section Header Banner Block -->
+    <div style="border-bottom: 1px solid var(--border-flat); padding-bottom: 1rem; margin-bottom: 1.5rem;">
+        <h1 style="font-size: 1.25rem; font-weight: 700; color: var(--text-primary); letter-spacing: 0.5px; text-transform: uppercase;">
+            KRONOS // INTERACTIVE LAB & DEFENSIVE SYLLABUS
+        </h1>
+        <p class="summary-text" style="margin-top: 6px; font-size: 0.8rem; color: var(--text-muted);">
+            Test input vulnerability vectors in real-time and study low-level operating system protection configurations.
+        </p>
+    </div>
+
+    <!-- 🧭 TOP ZONE: DEFENSIVE CYBERSECURITY OPERATION GUIDE -->
+    <div style="border-bottom: 1px solid var(--border-flat); padding-bottom: 1.5rem; margin-bottom: 1.5rem;">
+        <label class="control-label" style="font-size: 0.75rem; color: var(--text-primary); display: block; margin-bottom: 12px;">
+            🧭 KRONOS // DEFENSIVE CYBERSECURITY OPERATION GUIDE
+        </label>
+        
+        <div style="display: flex; flex-direction: column; gap: 12px; font-size: 0.8rem; color: var(--text-muted); line-height: 1.6;">
+            <p>
+                <strong style="color: var(--text-primary);">Step 1: Enforce Strict Input Bounding (The Sanitation Filter)</strong><br>
+                Never allow user strings to pass directly into systemic parsers or relational database interpreters. Secure input mechanisms require strict alphanumeric type-casting and whitelist validation routines. If an input field captures a special execution character (such as quotes or comments), the local WAF matrix must immediately intercept and flag the breakout sequence before execution parameters occur.
+            </p>
+            <p>
+                <strong style="color: var(--text-primary);">Step 2: Implement Parameterized Execution (Prepared Statements)</strong><br>
+                True database protection separates data code logic from executable syntax commands. By using compiled, parameterized SQL prepared statements, the database engine treats all incoming user text payloads purely as string variables, making it mathematically impossible for a rogue script query injection to alter the relational query structure inside system memory grids.
+            </p>
+            <p>
+                <strong style="color: var(--text-primary);">Step 3: Audit Runtime Background Memory Pools</strong><br>
+                Defensive engineering requires monitoring native endpoint properties. Use operating system command layers to continuously track active process trees. If an unverified script attempts process hollowing—spawning a legitimate system process shell in a suspended state to inject rogue instructions—heuristic memory analyzers must isolate the thread distribution instantly.
+            </p>
+        </div>
+    </div>
+
+    <!-- 🧪 INTERACTIVE TESTING MATRIX -->
+    <label class="control-label" style="font-size: 0.75rem; color: var(--text-primary); display: block; margin-bottom: 12px;">
+        🧪 RELATIONAL INJECTION SIMULATION LAB TERMINAL
+    </label>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 10px;">
+        
+        <!-- Left Column: Input Panel -->
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            <div class="spec-item" style="border-left-color: var(--status-amber); background-color: var(--panel-bg); margin: 0; padding: 1rem;">
+                <span class="control-label" style="display: block; margin-bottom: 8px;">INPUT SQL PAYLOAD STRING:</span>
+                <input type="text" id="sql-payload-input" class="cyber-input-field" value="' OR 1=1 --" style="width: 100%; margin-bottom: 12px;" oninput="runLocalWafAudit()">
+                
+                <span style="font-size: 0.65rem; color: var(--text-muted); line-height: 1.4; display: block;">
+                    👉 Try typing raw injection strings like: <code>' OR 1=1 --</code>, <code>UNION SELECT</code>, or <code>; DROP TABLE users;</code>
+                </span>
+            </div>
+        </div>
+
+        <!-- Right Column: Live WAF Logs Output -->
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+            <div class="spec-item" id="waf-log-panel" style="border-left-color: var(--status-optimal); background-color: var(--panel-bg); margin: 0; padding: 1rem; min-height: 140px;">
+                <span class="control-label" style="display: block; margin-bottom: 6px; color: var(--text-primary);">WAF THREAT RADAR TELEMETRY LOGS:</span>
+                <div id="waf-output-metrics" style="font-size: 0.75rem; line-height: 1.6; color: var(--status-optimal);">
+                    [STATUS] Core scanner running online. Input string analysis clear.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function runLocalWafAudit() {
+            const inputField = document.getElementById('sql-payload-input');
+            const outputLog = document.getElementById('waf-output-metrics');
+            const logPanel = document.getElementById('waf-log-panel');
+            
+            if (!inputField || !outputLog || !logPanel) return;
+            
+            const rawString = inputField.value;
+            const sqlMaliciousPatterns = [
+                { regex: /(['"\\#;])/g, name: "Quote Character Breakout Parameter" },
+                { regex: /\b(OR|AND)\b\s+['" \w\d=]+/i, name: "Arbitrary Boolean Tautology Logic" },
+                { regex: /\b(UNION|SELECT|DROP|DELETE|INSERT|ALTER)\b/i, name: "Unauthorized Relational DDL/DML Syntax Command" },
+                { regex: /(--|\/\*|\*\/)/g, name: "Database Compiler Comment Intercept Signature" }
+            ];
+            
+            let threatDetectionsFound = [];
+            sqlMaliciousPatterns.forEach(pattern => {
+                if (pattern.regex.test(rawString)) {
+                    threatDetectionsFound.push(pattern.name);
+                }
+            });
+            
+            if (threatDetectionsFound.length > 0) {
+                logPanel.style.borderLeftColor = "var(--status-alert)";
+                outputLog.innerHTML = `
+                    <span style="color:var(--status-alert); font-weight:700;">⚠️ [THREAT ALERT] UN-SANITIZED INJECTION SIGNATURE ISOLATED:</span><br>
+                    <div style="margin: 8px 0; color:var(--text-primary); font-size:0.7rem; background-color:var(--bg-main); padding:6px; border-left:2px solid var(--status-alert);">
+                        ${threatDetectionsFound.map(t => '➔ ' + t).join('<br>')}
+                    </div>
+                    <span style="color:var(--text-muted); font-size:0.7rem;">🛡️ DEFENSIVE REMEDIATION PATCH:<br>Enforce strict type parameter casting and parameterized prepared statement queries locally inside memory loops.</span>
+                `;
+            } else if (rawString.trim() === "") {
+                logPanel.style.borderLeftColor = "var(--text-muted)";
+                outputLog.innerHTML = `<span style="color:var(--text-muted);">[STANDBY] Input field empty. Awaiting string ingestion...</span>`;
+            } else {
+                logPanel.style.borderLeftColor = "var(--status-optimal)";
+                outputLog.innerHTML = `
+                    <span style="color:var(--status-optimal); font-weight:700;">✅ [STATUS] INPUT ISOLATED & SECURE:</span><br>
+                    <p style="margin-top:6px; color:var(--text-muted);">String contains zero database metadata command parameters. Relational structures running stable inside browser heap memory grids.</p>
+                `;
+            }
+        }
+        runLocalWafAudit();
+    </script>
+</div>
