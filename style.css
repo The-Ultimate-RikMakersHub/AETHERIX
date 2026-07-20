@@ -1,21 +1,21 @@
 /* ==========================================================================
-   📐 AETHERIX HIGH-DENSITY ACADEMIC LAYOUT SYSTEM (CLEAN MODE)
+   📐 AETHERIX ABSOLUTE MINIMALIST ACADEMIC CANVAS SYSTEM
    ========================================================================== */
 
 :root {
     --bg-canvas: #ffffff;
-    --border-clean: #e2e8f0;
-    --text-dark: #0f172a;
-    --text-muted: #64748b;
+    --border-flat: #ececec;
+    --text-primary: #000000;
+    --text-muted: #6e6e73;
     
-    /* Strict Status Accents */
-    --accent-complete: #16a34a;  
-    --accent-progress: #ea580c;  
-    --accent-planned: #64748b;   
-    --accent-active: #2563eb;    
+    /* Pure Solid Accents - Zero Glow */
+    --accent-complete: #1d1d1f;  
+    --accent-progress: #86868b;  
+    --accent-planned: #d2d2d7;   
+    --accent-active: #0066cc;    
     
     --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --font-mono: "SF Mono", SFMono-Regular, Consolas, Menlo, monospace;
 }
 
 * {
@@ -26,29 +26,33 @@
 
 body {
     background-color: var(--bg-canvas);
-    color: var(--text-dark);
+    color: var(--text-primary);
     font-family: var(--font-sans);
-    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.47059;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-/* 📊 Minimalist Stationary Navigation Navbar Header */
+/* 📊 Pure Minimalist Fixed Header Navigation */
 .crypto-header {
-    border-bottom: 1px solid var(--border-clean);
-    padding: 1.25rem 2rem;
+    background-color: var(--bg-canvas);
+    border-bottom: 1px solid var(--border-flat);
+    padding: 1.5rem 2.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--bg-canvas);
 }
 
 .header-brand h1 {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.5px;
-    color: var(--text-dark);
+}
+
+.secure-pulse-node {
+    display: none; /* Kills the neon pulse box permanently */
 }
 
 .header-nav-links {
@@ -61,62 +65,60 @@ body {
     text-decoration: none;
     font-size: 0.75rem;
     font-weight: 500;
-    padding: 0.4rem 0.75rem;
+    padding: 0.35rem 0.65rem;
     border-radius: 4px;
-    transition: all 0.1s ease;
+    transition: background-color 0.1s ease;
 }
 
 .nav-anchor:hover {
-    color: var(--text-dark);
-    background-color: #f8fafc;
+    color: var(--text-primary);
+    background-color: #f5f5f7;
 }
 
 .nav-anchor.active {
-    color: var(--text-dark);
-    background-color: #f1f5f9;
+    color: var(--text-primary);
+    background-color: #e8e8ed;
     font-weight: 600;
 }
 
 .org-badge {
     font-family: var(--font-mono);
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     color: var(--text-muted);
 }
 
-/* 📐 Main Viewport Bounding Container Canvas */
+/* 📐 Main Viewport Layout Frame Box */
 .dashboard-grid {
-    max-width: 800px;
+    max-width: 780px;
     width: 100%;
     margin: 0 auto;
-    padding: 3rem 2rem;
+    padding: 3.5rem 1.5rem;
     flex: 1;
 }
 
-/* 📋 High-Density Syllabus Accordion Matrix Layout */
+/* 📋 High-Density Syllabus Timelines */
 .academic-syllabus-container {
-    display: flex;
-    flex-direction: column;
     width: 100%;
 }
 
 .curriculum-meta-summary {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
     margin-bottom: 0.5rem;
-    font-weight: 500;
 }
 
 .meta-label {
-    color: var(--text-dark);
-    font-weight: 700;
+    color: var(--text-primary);
+    font-weight: 600;
 }
 
 .meta-divider {
-    margin: 0 0.4rem;
+    margin: 0 0.3rem;
+    color: var(--text-muted);
 }
 
 .syllabus-instructions-text {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
     margin-bottom: 1.5rem;
 }
@@ -124,61 +126,59 @@ body {
 .status-legend-ribbon {
     display: flex;
     gap: 1rem;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     color: var(--text-muted);
-    margin-bottom: 2rem;
-    border-bottom: 1px solid var(--border-clean);
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-flat);
     padding-bottom: 0.75rem;
 }
 
 .legend-item {
     display: flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.25rem;
 }
 
 .dot {
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
     display: inline-block;
 }
-.dot-complete { background-color: var(--accent-complete); }
-.dot-progress { background-color: var(--accent-progress); }
-.dot-planned { background-color: var(--accent-planned); }
+.dot-complete { background-color: var(--text-primary); }
+.dot-progress { background-color: var(--text-muted); }
+.dot-planned { background-color: var(--border-flat); }
 
-/* 📁 Accordion Rows Interactivity Layout */
+/* 📁 Expandable Phase Matrix Rows */
 .accordion-matrix-list {
     display: flex;
     flex-direction: column;
 }
 
 .phase-row-node {
-    border-bottom: 1px solid var(--border-clean);
+    border-bottom: 1px solid var(--border-flat);
 }
 
 .phase-header-trigger {
-    padding: 1rem 0;
+    padding: 0.85rem 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    user-select: none;
 }
 
 .phase-title-left {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
 }
 
 .phase-chevron {
     width: 0;
     height: 0;
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
+    border-left: 3.5px solid transparent;
+    border-right: 3.5px solid transparent;
     border-top: 4px solid var(--text-muted);
-    transition: transform 0.15s ease;
 }
 
 .phase-row-node.expanded .phase-chevron {
@@ -187,30 +187,30 @@ body {
 
 .phase-index {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
-    font-weight: 700;
+    font-size: 0.7rem;
     color: var(--text-muted);
+    font-weight: 500;
 }
 
 .phase-name {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-dark);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-primary);
 }
 
 .phase-status-badge {
     font-size: 0.7rem;
-    font-weight: 500;
+    font-weight: 400;
 }
-.status-complete { color: var(--accent-complete); }
-.status-progress { color: var(--accent-progress); }
-.status-planned { color: var(--accent-planned); }
+.status-complete { color: var(--text-primary); font-weight: 600; }
+.status-progress { color: var(--text-muted); }
+.status-planned { color: var(--text-muted); opacity: 0.5; }
 
-/* Hidden Drawer Content Area */
+/* In-Memory Dropdown View Drawers */
 .phase-lessons-drawer {
     display: none;
-    padding-bottom: 1rem;
-    padding-left: 1.5rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1.25rem;
 }
 
 .phase-row-node.expanded .phase-lessons-drawer {
@@ -219,87 +219,104 @@ body {
 }
 
 .lesson-row-item {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: var(--text-muted);
-    padding: 0.35rem 0;
+    padding: 0.25rem 0;
 }
 
 .lesson-row-item code {
     font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--text-dark);
-    background-color: #f1f5f9;
-    padding: 0.1rem 0.3rem;
+    font-size: 0.7rem;
+    color: var(--text-primary);
+    background-color: #f5f5f7;
+    padding: 0.05rem 0.25rem;
     border-radius: 3px;
-    margin-right: 0.5rem;
+    margin-right: 0.4rem;
 }
 
-/* Universal Forms, Tables, Grids Sharing Components */
+/* 📥 Shared Components Inputs & Table Overrides */
 .cyber-input-field {
     width: 100%;
-    padding: 0.5rem 0.75rem;
-    border: 1px solid var(--border-clean);
+    padding: 0.4rem 0.6rem;
+    border: 1px solid var(--border-flat);
     border-radius: 4px;
     font-family: var(--font-mono);
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     outline: none;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 .action-trigger-btn {
-    background-color: var(--text-dark);
-    color: var(--bg-canvas);
-    border: 1px solid var(--text-dark);
-    padding: 0.5rem 1rem;
-    font-size: 0.8rem;
-    font-weight: 600;
+    background-color: #1d1d1f;
+    color: #ffffff;
+    border: 1px solid #1d1d1f;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    font-weight: 500;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.1s ease;
 }
-.action-trigger-btn:hover { background-color: #334155; }
+.action-trigger-btn:hover { background-color: #000000; }
 
 .spec-item {
-    padding: 0.75rem;
-    border: 1px solid var(--border-clean);
+    padding: 0.6rem;
+    border: 1px solid var(--border-flat);
     border-radius: 4px;
-    font-size: 0.85rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.4rem;
 }
 
-/* Data Table Grid Overrides */
+/* Flat Reference Grid Sheets */
 .data-table-container table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 1rem;
 }
 
 .data-table-container th {
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     color: var(--text-muted);
-    text-transform: uppercase;
-    border-bottom: 1px solid var(--border-clean);
+    font-weight: 600;
+    border-bottom: 1px solid var(--text-primary);
     padding: 0.5rem;
     text-align: left;
 }
 
 .data-table-container td {
-    padding: 0.75rem 0.5rem;
-    border-bottom: 1px solid var(--border-clean);
+    padding: 0.65rem 0.5rem;
+    border-bottom: 1px solid var(--border-flat);
     vertical-align: top;
 }
 
-/* Branded Footer */
+/* 🐋 Loading Indication Macros */
+.loading-matrix-trace {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 3rem 0;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
+
+.spinner-token {
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--border-flat);
+    border-top-color: var(--text-primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Universal Footer Colophons */
 .crypto-footer {
-    border-top: 1px solid var(--border-clean);
-    padding: 1.5rem 2rem;
+    border-top: 1px solid var(--border-flat);
+    padding: 1.5rem 2.5rem;
     display: flex;
     justify-content: space-between;
     font-size: 0.65rem;
     color: var(--text-muted);
     background-color: var(--bg-canvas);
-}
-
-@media (max-width: 640px) {
-    .crypto-header, .crypto-footer { flex-direction: column; text-align: center; gap: 10px; }
-    .header-nav-links { flex-wrap: wrap; justify-content: center; }
 }
