@@ -1,5 +1,5 @@
 // ==========================================================================
-// 🛸 AETHERIX ASYNCHRONOUS 7-PART DYNAMIC FETCH ROUTER CORE ENGINE
+// 🛸 AETHERIX ASYNCHRONOUS MULTI-PAGE ROUTER & DATA INGESTION ENGINE
 // ==========================================================================
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -33,11 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
 
-        // 🛡️ THE HOME PAGE BYPASS GUARD: If viewing Content, use the statically baked code!
+        // 🛡️ THE HOME PAGE BYPASS GUARD: If viewing Content, use the statically baked code
         if (activeUrlHash === "#/content") {
             const staticNode = document.getElementById("static-content-tab");
             if (staticNode) {
-                // If the static panel was hidden by a previous tab click, bring it back instantly
                 staticNode.style.display = "block";
                 
                 // Clear out any residual sub-page data layout nodes that were fetched earlier
@@ -91,8 +90,9 @@ document.addEventListener("DOMContentLoaded", () => {
         } catch (error) {
             console.error("⚠️ Async Route Fetch Failure:", error);
             viewportMountElement.innerHTML = `
-                <div class="loading-matrix-trace">
-                    <p style="color:#ef4444;">404 // OPERATION COMPONENT ROUTE INTERRUPTED OR UNALLOCATED IN VIEWS DIRECTORY</p>
+                <div class="loading-matrix-trace" style="color: #ef4444;">
+                    <p style="font-weight: 700;">⚠️ 404 // OPERATION COMPONENT ROUTE INTERRUPTED</p>
+                    <p style="font-size: 0.7rem; margin-top: 4px;">Ensure the file sits inside your <code>views/</code> directory container.</p>
                 </div>
             `;
         }
@@ -120,11 +120,74 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // ==========================================================================
+    // 💬 DATA INGESTION: ASYNCHRONOUS STATIC JSON GUESTBOOK INTERFACE
+    // ==========================================================================
+    async function ingestStaticFeedbackLedger() {
+        const streamContainer = document.getElementById("feedback-logs-stream");
+        if (!streamContainer) return;
+
+        try {
+            // Fetching the independent static JSON file chunk directly from GitHub Pages edge
+            const dataResponse = await fetch("feedback.json?nocache=" + new Date().getTime());
+            
+            if (!dataResponse.ok) throw new Error(`HTTP Storage Fault: ${dataResponse.status}`);
+            const feedbackRecordsList = await dataResponse.json();
+
+            if (feedbackRecordsList.length === 0) {
+                streamContainer.innerHTML = `<p style="color: #6e6e73; font-style: italic;">No public transmission records found in database vault.</p>`;
+                return;
+            }
+
+            // Loop through the data records and map them cleanly right onto the screen grid
+            streamContainer.innerHTML = feedbackRecordsList.map(record => {
+                return `
+                    <div style="border-left: 2px solid #ececec; padding-left: 10px; margin-bottom: 8px; text-align: left;">
+                        <span style="font-weight: 600; color: #000000;">➔ [${record.author}]:</span>
+                        <span style="color: #000000; font-family: -apple-system, sans-serif; font-size: 0.85rem; margin-left: 4px;">"${record.comment}"</span>
+                        <span style="color: #6e6e73; font-size: 0.65rem; margin-left: 6px; font-family: monospace; text-transform: uppercase;">- ${record.timestamp}</span>
+                    </div>
+                `;
+            }).join("");
+
+        } catch (error) {
+            console.error("⚠️ Failed to parse static feedback JSON stream line:", error);
+            streamContainer.innerHTML = `<p style="color: #ef4444; font-size: 0.75rem;">Unable to establish secure telemetry bridge to local JSON file data log storage.</p>`;
+        }
+    }
+
+    // Interactive Dispatch Chamber Action Listener Setup
+    function setupFeedbackDispatchTriggers() {
+        const submitBtn = document.getElementById("feedback-submit-node");
+        const textInput = document.getElementById("feedback-user-text");
+
+        if (submitBtn && textInput) {
+            submitBtn.addEventListener("click", () => {
+                const userRemarksString = textInput.value.trim();
+                if (userRemarksString === "") {
+                    alert("Please enter structural evaluation comments before dispatching message string.");
+                    return;
+                }
+
+                // Serverless redirection macro filling out the GitHub issue data parameters smoothly
+                const repoIssueUrl = `https://github.com{encodeURIComponent("[AETHERIX_FEEDBACK] " + userRemarksString)}&body=${encodeURIComponent("Submitted via AETHERIX Production Web Console Deck Grid Node.")}`;
+                
+                // Clear the input text block to confirm data capture processing locally
+                textInput.value = "";
+                
+                // Launch the open issue repository composer tab panel workspace
+                window.open(repoIssueUrl, "_blank");
+            });
+        }
+    }
+
     // Bind event listeners tracking browser URL window hash shifts
     window.addEventListener("hashchange", executeAsyncRouteSwap);
     
-    // Boot the routing network on initial viewport mount layer execution
+    // Boot the application matrix processes on initial mount layer execution
     executeAsyncRouteSwap();
+    ingestStaticFeedbackLedger();
+    setupFeedbackDispatchTriggers();
 });
 
 // PWA background offline network asset registry proxy layer
