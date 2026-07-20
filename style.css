@@ -1,25 +1,23 @@
 /* ==========================================================================
-   🎨 AETHERIX INDUSTRIAL DESIGN SYSTEM - TACTICAL MINIMALIST SYSTEM SHEET
+   📐 AETHERIX HIGH-DENSITY ACADEMIC LAYOUT SYSTEM (CLEAN MODE)
    ========================================================================== */
 
 :root {
-    --bg-main: #0b0f19;
-    --panel-bg: #121826;
-    --panel-header-bg: #182032;
-    --border-flat: #263147;
+    --bg-canvas: #ffffff;
+    --border-clean: #e2e8f0;
+    --text-dark: #0f172a;
+    --text-muted: #64748b;
     
-    /* Functional Tactical Status Colors (No glowing accents) */
-    --status-optimal: #10b981;  /* Balanced Slate Green */
-    --status-active: #0ea5e9;   /* Controlled Alert Blue */
-    --status-amber: #f59e0b;    /* Warning Amber */
-    --status-alert: #ef4444;    /* Critical Red */
+    /* Strict Status Accents */
+    --accent-complete: #16a34a;  
+    --accent-progress: #ea580c;  
+    --accent-planned: #64748b;   
+    --accent-active: #2563eb;    
     
-    --text-primary: #f1f5f9;
-    --text-muted: #94a3b8;
-    --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 }
 
-/* 1. Universal Layout Resets */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -27,307 +25,281 @@
 }
 
 body {
-    background-color: var(--bg-main);
-    color: var(--text-primary);
-    font-family: var(--font-mono);
+    background-color: var(--bg-canvas);
+    color: var(--text-dark);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    overflow-x: hidden;
 }
 
-/* 2. Industrial Fixed Navigation Bar */
+/* 📊 Minimalist Stationary Navigation Navbar Header */
 .crypto-header {
-    background-color: var(--panel-bg);
-    border-bottom: 1px solid var(--border-flat);
-    padding: 1rem 2rem;
+    border-bottom: 1px solid var(--border-clean);
+    padding: 1.25rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.header-brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    background-color: var(--bg-canvas);
 }
 
 .header-brand h1 {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    color: var(--text-primary);
-    letter-spacing: 1px;
-}
-
-/* Structural Status Square (No glowing filters) */
-.secure-pulse-node {
-    width: 8px;
-    height: 8px;
-    background-color: var(--status-optimal);
-    border-radius: 1px;
+    letter-spacing: 0.5px;
+    color: var(--text-dark);
 }
 
 .header-nav-links {
     display: flex;
-    gap: 0.5rem;
+    gap: 0.25rem;
 }
 
 .nav-anchor {
     color: var(--text-muted);
     text-decoration: none;
     font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.5px;
+    font-weight: 500;
     padding: 0.4rem 0.75rem;
-    border-radius: 2px;
-    border: 1px solid transparent;
-    transition: all 0.15s ease-in-out;
+    border-radius: 4px;
+    transition: all 0.1s ease;
 }
 
 .nav-anchor:hover {
-    color: var(--text-primary);
-    background-color: var(--panel-header-bg);
-    border-color: var(--border-flat);
+    color: var(--text-dark);
+    background-color: #f8fafc;
 }
 
 .nav-anchor.active {
-    color: var(--bg-main);
-    background-color: var(--text-primary);
-    border-color: var(--text-primary);
+    color: var(--text-dark);
+    background-color: #f1f5f9;
+    font-weight: 600;
 }
 
 .org-badge {
+    font-family: var(--font-mono);
     font-size: 0.7rem;
     color: var(--text-muted);
-    border: 1px solid var(--border-flat);
-    padding: 0.2rem 0.5rem;
-    border-radius: 2px;
-    letter-spacing: 0.5px;
 }
 
-/* 3. Master Viewport Containment Grid */
+/* 📐 Main Viewport Bounding Container Canvas */
 .dashboard-grid {
-    padding: 2rem;
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 3rem 2rem;
     flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
 }
 
-/* 4. Industrial Component Panel Blocks */
-.crypto-panel {
-    background-color: var(--panel-bg);
-    border: 1px solid var(--border-flat);
-    border-radius: 3px;
+/* 📋 High-Density Syllabus Accordion Matrix Layout */
+.academic-syllabus-container {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
-.panel-title {
-    background-color: var(--panel-header-bg);
-    padding: 0.75rem 1.2rem;
-    font-size: 0.75rem;
+.curriculum-meta-summary {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.meta-label {
+    color: var(--text-dark);
     font-weight: 700;
-    letter-spacing: 0.5px;
-    color: var(--text-primary);
-    border-bottom: 1px solid var(--border-flat);
+}
+
+.meta-divider {
+    margin: 0 0.4rem;
+}
+
+.syllabus-instructions-text {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.status-legend-ribbon {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-clean);
+    padding-bottom: 0.75rem;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+}
+.dot-complete { background-color: var(--accent-complete); }
+.dot-progress { background-color: var(--accent-progress); }
+.dot-planned { background-color: var(--accent-planned); }
+
+/* 📁 Accordion Rows Interactivity Layout */
+.accordion-matrix-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.phase-row-node {
+    border-bottom: 1px solid var(--border-clean);
+}
+
+.phase-header-trigger {
+    padding: 1rem 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-/* Flat Status Badges */
-.status-indicator {
-    font-size: 0.65rem;
-    padding: 0.15rem 0.4rem;
-    border-radius: 2px;
-    font-weight: 700;
-    background-color: var(--bg-main);
-}
-.status-indicator.optimal { color: var(--status-optimal); border: 1px solid var(--status-optimal); }
-.status-indicator.active-mesh { color: var(--status-active); border: 1px solid var(--status-active); }
-.status-indicator.testing { color: var(--status-amber); border: 1px solid var(--status-amber); }
-.status-indicator.alert { color: var(--status-alert); border: 1px solid var(--status-alert); }
-
-.panel-content {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-}
-
-.summary-text {
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    line-height: 1.5;
-}
-
-/* 5. Minimalist Data Input Elements */
-.input-block-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.control-label {
-    font-size: 0.65rem;
-    color: var(--text-muted);
-    font-weight: 700;
-    letter-spacing: 0.5px;
-}
-
-.cyber-input-field {
-    background-color: var(--bg-main);
-    border: 1px solid var(--border-flat);
-    color: var(--text-primary);
-    font-family: var(--font-mono);
-    padding: 0.65rem 1rem;
-    font-size: 0.8rem;
-    border-radius: 2px;
-    outline: none;
-    width: 100%;
-}
-
-.cyber-input-field:focus {
-    border-color: var(--text-muted);
-}
-
-/* Flat Tactical Interface Buttons */
-.action-trigger-btn {
-    background-color: var(--text-primary);
-    border: 1px solid var(--text-primary);
-    color: var(--bg-main);
-    font-family: var(--font-mono);
-    padding: 0.65rem 1.2rem;
     cursor: pointer;
-    font-weight: 700;
+    user-select: none;
+}
+
+.phase-title-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.phase-chevron {
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid var(--text-muted);
+    transition: transform 0.15s ease;
+}
+
+.phase-row-node.expanded .phase-chevron {
+    transform: rotate(-180deg);
+}
+
+.phase-index {
+    font-family: var(--font-mono);
     font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+.phase-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.phase-status-badge {
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+.status-complete { color: var(--accent-complete); }
+.status-progress { color: var(--accent-progress); }
+.status-planned { color: var(--accent-planned); }
+
+/* Hidden Drawer Content Area */
+.phase-lessons-drawer {
+    display: none;
+    padding-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+.phase-row-node.expanded .phase-lessons-drawer {
+    display: flex;
+    flex-direction: column;
+}
+
+.lesson-row-item {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding: 0.35rem 0;
+}
+
+.lesson-row-item code {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-dark);
+    background-color: #f1f5f9;
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+    margin-right: 0.5rem;
+}
+
+/* Universal Forms, Tables, Grids Sharing Components */
+.cyber-input-field {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border-clean);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    outline: none;
+}
+
+.action-trigger-btn {
+    background-color: var(--text-dark);
+    color: var(--bg-canvas);
+    border: 1px solid var(--text-dark);
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
     transition: background-color 0.1s ease;
-    text-align: center;
-    border-radius: 2px;
-    width: max-content;
 }
-
-.action-trigger-btn:hover {
-    background-color: #cbd5e1;
-    border-color: #cbd5e1;
-}
-
-.action-trigger-btn.secondary {
-    background-color: transparent;
-    border-color: var(--border-flat);
-    color: var(--text-primary);
-}
-
-.action-trigger-btn.secondary:hover {
-    background-color: var(--panel-header-bg);
-}
-
-/* 6. Precision Technical Grid & Data Tables */
-.spec-grid-layout {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 10px;
-    margin-top: 0.5rem;
-}
+.action-trigger-btn:hover { background-color: #334155; }
 
 .spec-item {
-    font-size: 0.75rem;
-    color: var(--text-muted);
-    padding: 0.5rem;
-    border-left: 2px solid var(--border-flat);
-    background-color: var(--bg-main);
+    padding: 0.75rem;
+    border: 1px solid var(--border-clean);
+    border-radius: 4px;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
 }
 
-.data-table-container {
-    overflow-x: auto;
-    border: 1px solid var(--border-flat);
-    border-radius: 2px;
-}
-
-table {
+/* Data Table Grid Overrides */
+.data-table-container table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.75rem;
+    margin-top: 1rem;
+}
+
+.data-table-container th {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border-clean);
+    padding: 0.5rem;
     text-align: left;
 }
 
-th {
-    background-color: var(--panel-header-bg);
-    padding: 0.6rem;
-    color: var(--text-muted);
-    border-bottom: 1px solid var(--border-flat);
-    font-weight: 700;
+.data-table-container td {
+    padding: 0.75rem 0.5rem;
+    border-bottom: 1px solid var(--border-clean);
+    vertical-align: top;
 }
 
-td {
-    padding: 0.6rem;
-    border-bottom: 1px solid var(--border-flat);
-    color: var(--text-primary);
-}
-
-tr:last-child td {
-    border-bottom: none;
-}
-
-/* Threat Matrix Technical Cards */
-.threat-matrix-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 15px;
-}
-
-.threat-card {
-    background-color: var(--bg-main);
-    border: 1px solid var(--border-flat);
-    padding: 1rem;
-    border-radius: 2px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    font-size: 0.75rem;
-}
-
-.threat-card strong {
-    color: var(--text-primary);
-}
-
-.threat-card p {
-    color: var(--text-muted);
-}
-
-.threat-card.item-trojan { border-left: 3px solid var(--status-alert); }
-.threat-card.item-ransomware { border-left: 3px solid var(--status-amber); }
-
-.patch-line {
-    font-size: 0.7rem;
-    background-color: var(--panel-bg);
-    padding: 0.4rem;
-    border-radius: 2px;
-    color: var(--text-primary) !important;
-}
-
-/* 7. Corporate Layout Footers */
+/* Branded Footer */
 .crypto-footer {
-    background-color: var(--panel-bg);
-    border-top: 1px solid var(--border-flat);
-    padding: 0.8rem 2rem;
+    border-top: 1px solid var(--border-clean);
+    padding: 1.5rem 2rem;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     font-size: 0.65rem;
     color: var(--text-muted);
-    letter-spacing: 0.5px;
-    flex-wrap: wrap;
-    gap: 10px;
+    background-color: var(--bg-canvas);
 }
 
-/* 8. Adaptive Breakpoint Overrides */
-@media (max-width: 768px) {
-    .dashboard-grid { padding: 1rem; }
-    .crypto-header, .crypto-footer { flex-direction: column; text-align: center; padding: 1rem; }
-    .header-nav-links { flex-wrap: wrap; justify-content: center; gap: 5px; margin: 10px 0; }
-    .action-trigger-btn { width: 100%; }
+@media (max-width: 640px) {
+    .crypto-header, .crypto-footer { flex-direction: column; text-align: center; gap: 10px; }
+    .header-nav-links { flex-wrap: wrap; justify-content: center; }
 }
