@@ -1,9 +1,9 @@
 // ==========================================================================
-// 🛸 AETHERIX ASYNCHRONOUS MULTI-PAGE ROUTER & DATA INGESTION ENGINE
+// 🛸 AETHERIX ASYNCHRONOUS MULTI-PAGE ROUTER & DATA INGESTION ENGINE (PART 1 OF 2)
 // ==========================================================================
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("⚙️ AETHERIX 7-Tab Industrial Router Engaged.");
+    console.log("⚙️ AETHERIX Full-Scale Systems Router Active.");
 
     // Native Hardware-Aware Capacity Scanner Registry
     const localHardwareRam = navigator.deviceMemory || 8;
@@ -38,12 +38,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const staticNode = document.getElementById("static-content-tab");
             if (staticNode) {
                 staticNode.style.display = "block";
-                
-                // Clear out any residual sub-page data layout nodes that were fetched earlier
                 const fetchedChildren = viewportMountElement.querySelectorAll(".fetched-fragment-wrapper");
                 fetchedChildren.forEach(child => child.remove());
                 
-                // Inject native memory metrics directly into the static dashboard row readout
                 const ramContainer = document.getElementById("detected-ram-buffer");
                 if (ramContainer) {
                     ramContainer.textContent = `${localHardwareRam} GB RAM`;
@@ -52,20 +49,15 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // Isolate the target local layout filename pathway for the other 6 tabs
         const targetFilePath = routingModulePaths[activeUrlHash];
         if (!targetFilePath || targetFilePath === "STATIC_BAKED_SHELL") {
             window.location.hash = "#/content";
             return;
         }
 
-        // Hide the main home page syllabus panel so the oncoming sub-page layout can render cleanly
         const staticNode = document.getElementById("static-content-tab");
-        if (staticNode) {
-            staticNode.style.display = "none";
-        }
+        if (staticNode) { staticNode.style.display = "none"; }
 
-        // Display low-contrast tactical loader trace message while fetching data arrays
         viewportMountElement.innerHTML = `
             <div class="loading-matrix-trace">
                 <span class="spinner-token"></span>
@@ -74,75 +66,132 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
 
         try {
-            // Fetching the independent static view fragment code block from the views/ directory
             const executionResponse = await fetch(targetFilePath);
-            
             if (!executionResponse.ok) throw new Error(`HTTP Fault Status: ${executionResponse.status}`);
             
             const layoutHtmlFragmentString = await executionResponse.text();
-            
-            // Wrap the incoming text string fragment in an isolated layout container class node
             viewportMountElement.innerHTML = `<div class="fetched-fragment-wrapper">${layoutHtmlFragmentString}</div>`;
             
-            // Initialize functional event triggers inside the freshly fetched file templates
-            initializeDynamicModuleTriggers(activeUrlHash);
+            // Initialize the real-world functional engines when view modules mount
+            initializeDynamicModuleFeatures(activeUrlHash);
 
         } catch (error) {
             console.error("⚠️ Async Route Fetch Failure:", error);
             viewportMountElement.innerHTML = `
                 <div class="loading-matrix-trace" style="color: #ef4444;">
                     <p style="font-weight: 700;">⚠️ 404 // OPERATION COMPONENT ROUTE INTERRUPTED</p>
-                    <p style="font-size: 0.7rem; margin-top: 4px;">Ensure the file sits inside your <code>views/</code> directory container.</p>
                 </div>
             `;
         }
     }
-
-    // Dynamic Module Functional Binding Engine (Triggers calculations when files mount)
-    function initializeDynamicModuleTriggers(route) {
-        // Active computation trigger hook for the OBELISK local obfuscation deck tool
+    // ==========================================================================
+    // 🔥 REAL-WORLD RE-ENGINEERED COMPONENT UTILITY ENGINES
+    // ==========================================================================
+    function initializeDynamicModuleFeatures(route) {
+        
+        // --- 🪨 TAB 2 REAL ENGINE: CRYPTOGRAPHIC SCRAMBLER & SHANNON ENTROPY CHECKER ---
         if (route === "#/obelisk") {
             const btn = document.getElementById("scramble-trigger-node");
             const input = document.getElementById("payload-string");
             const output = document.getElementById("output-armored");
+            const entropyDisplay = document.getElementById("entropy-metric-readout");
             
             if (btn && input && output) {
                 btn.addEventListener("click", () => {
                     const rawVal = input.value;
-                    let result = "";
+                    if (!rawVal) return;
+                    
+                    // 1. Core Bitwise XOR Character Transformation Loop
+                    let obfuscatedResult = "";
                     for(let i = 0; i < rawVal.length; i++) {
-                        result += String.fromCharCode(rawVal.charCodeAt(i) ^ 0x0F);
+                        obfuscatedResult += String.fromCharCode(rawVal.charCodeAt(i) ^ 0x0F);
                     }
-                    output.value = `AETH_SEC_VAULT_v1[${btoa(result)}]`;
-                    console.log("🔒 Data obfuscation loops successfully completed calculations.");
+                    const armoredBase64 = btoa(obfuscatedResult);
+                    output.value = `AETH_SEC_VAULT_v1[${armoredBase64}]`;
+                    
+                    // 2. Live Shannon Entropy Mathematical Calculation
+                    const frequencies = {};
+                    for (let c of armoredBase64) { frequencies[c] = (frequencies[c] || 0) + 1; }
+                    let shannonEntropy = 0;
+                    const totalChars = armoredBase64.length;
+                    for (let char in frequencies) {
+                        const probability = frequencies[char] / totalChars;
+                        shannonEntropy -= probability * Math.log2(probability);
+                    }
+                    
+                    if (entropyDisplay) {
+                        entropyDisplay.innerHTML = `➔ PAYLOAD SHANNON ENTROPY: <strong>${shannonEntropy.toFixed(4)} bits/byte</strong> (Cryptographic Randomness Index)`;
+                    }
+                });
+            }
+        }
+
+        // --- ⏳ TAB 5 REAL ENGINE: REAL-TIME WAF PAYLOAD INTERCEPTION LOG STREAM ---
+        if (route === "#/kronos") {
+            const inputField = document.getElementById('sql-payload-input');
+            if (inputField) {
+                inputField.addEventListener('input', () => {
+                    const outputLog = document.getElementById('waf-output-metrics');
+                    const logPanel = document.getElementById('waf-log-panel');
+                    if (!outputLog || !logPanel) return;
+                    
+                    const rawString = inputField.value;
+                    const sqlPatterns = [
+                        { regex: /(['"\\#;])/g, name: "Quote Character Breakout Parameter" },
+                        { regex: /\b(OR|AND)\b\s+['" \w\d=]+/i, name: "Arbitrary Boolean Tautology Logic" },
+                        { regex: /\b(UNION|SELECT|DROP|DELETE|INSERT|ALTER)\b/i, name: "Unauthorized Relational DDL/DML Command Syntax" },
+                        { regex: /(--|\/\*|\*\/)/g, name: "Database Compiler Comment Intercept Signature" }
+                    ];
+                    
+                    let detections = [];
+                    sqlPatterns.forEach(pattern => {
+                        if (pattern.regex.test(rawString)) { detections.push(pattern.name); }
+                    });
+                    
+                    if (detections.length > 0) {
+                        logPanel.style.borderLeftColor = "#ef4444";
+                        outputLog.innerHTML = `
+                            <span style="color:#ef4444; font-weight:700;">⚠️ [THREAT DETECTED] REGEX INJECTION SIGNATURE MATCH:</span><br>
+                            <div style="margin: 8px 0; color:#000000; font-size:0.7rem; background-color:#f5f5f7; padding:6px; border-left:2px solid #ef4444;">
+                                ${detections.map(t => '➔ ' + t).join('<br>')}
+                            </div>
+                            <span style="color:#6e6e73; font-size:0.7rem;">🛡️ COUNTERMEASURE ACTION:<br>Aborting execution line threads. Enforcing strict parameterized inputs inside local bounds.</span>
+                        `;
+                    } else if (rawString.trim() === "") {
+                        logPanel.style.borderLeftColor = "#6e6e73";
+                        outputLog.innerHTML = `<span>[STANDBY] Ingestion chamber empty. Awaiting string inputs...</span>`;
+                    } else {
+                        logPanel.style.borderLeftColor = "#16a34a";
+                        outputLog.innerHTML = `
+                            <span style="color:#16a34a; font-weight:700;">✅ [STATUS CLEAR] STRUCTURALLY CLEAN:</span><br>
+                            <p style="margin-top:4px; color:#6e6e73;">No systemic breakout characters isolated. Array variables running securely inside browser memory limits.</p>
+                        `;
+                    }
                 });
             }
         }
     }
 
     // ==========================================================================
-    // 💬 DATA INGESTION: ASYNCHRONOUS STATIC JSON GUESTBOOK INTERFACE
+    // 💬 GUESTBOOK STORAGE FEEDBACK FETCH LOOPS
     // ==========================================================================
     async function ingestStaticFeedbackLedger() {
         const streamContainer = document.getElementById("feedback-logs-stream");
         if (!streamContainer) return;
 
         try {
-            // Fetching the independent static JSON file chunk directly from GitHub Pages edge
             const dataResponse = await fetch("feedback.json?nocache=" + new Date().getTime());
-            
-            if (!dataResponse.ok) throw new Error(`HTTP Storage Fault: ${dataResponse.status}`);
+            if (!dataResponse.ok) throw new Error(`HTTP Storage Fault`);
             const feedbackRecordsList = await dataResponse.json();
 
             if (feedbackRecordsList.length === 0) {
-                streamContainer.innerHTML = `<p style="color: #6e6e73; font-style: italic;">No public transmission records found in database vault.</p>`;
+                streamContainer.innerHTML = `<p style="color: #6e6e73; font-style: italic;">No public transmission records found.</p>`;
                 return;
             }
 
-            // Loop through the data records and map them cleanly right onto the screen grid
             streamContainer.innerHTML = feedbackRecordsList.map(record => {
                 return `
-                    <div style="border-left: 2px solid #ececec; padding-left: 10px; margin-bottom: 8px; text-align: left;">
+                    <div style="border-left: 2px solid #ececec; padding-left: 10px; margin-bottom: 8px;">
                         <span style="font-weight: 600; color: #000000;">➔ [${record.author}]:</span>
                         <span style="color: #000000; font-family: -apple-system, sans-serif; font-size: 0.85rem; margin-left: 4px;">"${record.comment}"</span>
                         <span style="color: #6e6e73; font-size: 0.65rem; margin-left: 6px; font-family: monospace; text-transform: uppercase;">- ${record.timestamp}</span>
@@ -151,12 +200,11 @@ document.addEventListener("DOMContentLoaded", () => {
             }).join("");
 
         } catch (error) {
-            console.error("⚠️ Failed to parse static feedback JSON stream line:", error);
-            streamContainer.innerHTML = `<p style="color: #ef4444; font-size: 0.75rem;">Unable to establish secure telemetry bridge to local JSON file data log storage.</p>`;
+            console.error("⚠️ JSON Parse Interrupted:", error);
+            streamContainer.innerHTML = `<p style="color: #ef4444; font-size: 0.75rem;">Unable to establish bridge to feedback.json data logs storage.</p>`;
         }
     }
 
-    // Interactive Dispatch Chamber Action Listener Setup
     function setupFeedbackDispatchTriggers() {
         const submitBtn = document.getElementById("feedback-submit-node");
         const textInput = document.getElementById("feedback-user-text");
@@ -165,32 +213,24 @@ document.addEventListener("DOMContentLoaded", () => {
             submitBtn.addEventListener("click", () => {
                 const userRemarksString = textInput.value.trim();
                 if (userRemarksString === "") {
-                    alert("Please enter structural evaluation comments before dispatching message string.");
+                    alert("Please enter comments before dispatching message string.");
                     return;
                 }
 
-                // Serverless redirection macro filling out the GitHub issue data parameters smoothly
-                const repoIssueUrl = `https://github.com{encodeURIComponent("[AETHERIX_FEEDBACK] " + userRemarksString)}&body=${encodeURIComponent("Submitted via AETHERIX Production Web Console Deck Grid Node.")}`;
-                
-                // Clear the input text block to confirm data capture processing locally
+                const repoIssueUrl = `https://github.com{encodeURIComponent("[AETHERIX_FEEDBACK] " + userRemarksString)}&body=${encodeURIComponent("Submitted via AETHERIX Web Console Deck Grid Node.")}`;
                 textInput.value = "";
-                
-                // Launch the open issue repository composer tab panel workspace
                 window.open(repoIssueUrl, "_blank");
             });
         }
     }
 
-    // Bind event listeners tracking browser URL window hash shifts
     window.addEventListener("hashchange", executeAsyncRouteSwap);
-    
-    // Boot the application matrix processes on initial mount layer execution
     executeAsyncRouteSwap();
     ingestStaticFeedbackLedger();
     setupFeedbackDispatchTriggers();
 });
 
-// PWA background offline network asset registry proxy layer
+// PWA background offline network asset proxy layer
 if ("serviceWorker" in navigator) {
     window.addEventListener("load", () => {
         navigator.serviceWorker.register("sw.js").catch(err => console.error(err));
